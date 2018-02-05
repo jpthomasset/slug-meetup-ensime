@@ -1,0 +1,8 @@
+.reveal blockquote {
+    width: 100%;
+}
+
+.org-src-container pre {
+    background: #3F3F3F;
+    color: #fff;
+}
