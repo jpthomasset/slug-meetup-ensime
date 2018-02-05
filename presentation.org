@@ -1,0 +1,71 @@
+#+TITLE: Scala + Ensime = ♥
+#+OPTIONS: num:nil
+#+OPTIONS: toc:nil 
+#+OPTIONS: reveal_title_slide:nil
+#+OPTIONS: reveal_slide_number:nil
+#+REVEAL_HLEVEL: 1
+#+REVEAL_THEME: solarized
+#+REVEAL_EXTRA_CSS: style.css
+
+* Scala + Ensime = ♥
+Avec un peu d'Emacs dedans !
+
+* Sondage
+- [ ] Intellij 
+- [ ] Eclipse
+- [ ] Ensime
+- [ ] Autre ?
+
+* C'est quoi l'idée 
+[[./img/architecture.png]]
+* Indépendant de l'éditeur et de l'outil de build
+** Build tools
+- sbt
+- cbt
+- maven
+- gradle
+...
+
+** Editeurs
+- Emacs (♥)
+- Atom
+- Vim
+- Visual Studio Code
+
+* En pratique
+1. Installer le plugin sbt
+  #+BEGIN_SRC scala
+  // ./.sbt/1.0/plugins/plugins.sbt
+  addSbtPlugin("org.ensime" % "sbt-ensime" % "2.1.0")
+  #+END_SRC
+2. Générer une configuration par projet
+  #+BEGIN_SRC bash
+  % sbt ensimeConfig 
+  #+END_SRC
+3. Intégration dans l'éditeur (emacs)
+  - Installation du package (M-x list-packages)
+  - Lancement de l'intégration (M-x ensime)
+
+* Demo
+- Code compilation/checking
+- Inférence des types (C-c C-v t)
+- Completion
+- Import de type (C-c C-r t)
+- Navigation dans le code (M-. et M-,)
+- Trouver les utilisations (C-c C-v r)
+- Expliciter les implicites (C-c C-v e)
+- Serveur de documentation (C-c C-v d)
+- Refactor (`C-v C-r r` et `C-v C-r r`) 
+
+* Ce que je n'ai pas testé
+- Debugging
+- Support Java
+
+* Les moins
+- Lag (pas pire qu'Intellij)
+- Bugs
+- Pas aussi complet qu'un IDE
+
+* Conclusion
+- Pas pour les débutants
+- Intégration dans l'outil de votre choix
