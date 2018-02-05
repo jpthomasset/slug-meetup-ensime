@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Scala + Ensime = ♥</title>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/solarized.css" id="theme"/>
+
+<link rel="stylesheet" href="style.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<section>
+<section id="slide-org452625a">
+<h2 id="org452625a">Scala + Ensime = ♥</h2>
+<p>
+Avec un peu d'Emacs dedans !
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org8cf980e">
+<h2 id="org8cf980e">Sondage</h2>
+<ul>
+<li class="off"><code>[&#xa0;]</code> Intellij</li>
+<li class="off"><code>[&#xa0;]</code> Eclipse</li>
+<li class="off"><code>[&#xa0;]</code> Ensime</li>
+<li class="off"><code>[&#xa0;]</code> Autre ?</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org74da936">
+<h2 id="org74da936">C'est quoi l'idée</h2>
+
+<div class="figure">
+<p><img src="./img/architecture.png" alt="architecture.png" />
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org9622e04">
+<h2 id="org9622e04">Indépendant de l'éditeur et de l'outil de build</h2>
+<div class="outline-text-2" id="text-org9622e04">
+</div>
+</section>
+<section id="slide-orgda3b106">
+<h3 id="orgda3b106">Build tools</h3>
+<ul>
+<li>sbt</li>
+<li>cbt</li>
+<li>maven</li>
+<li>gradle</li>
+
+</ul>
+<p>
+&#x2026;
+</p>
+
+</section>
+<section id="slide-orgd268db7">
+<h3 id="orgd268db7">Editeurs</h3>
+<ul>
+<li>Emacs (♥)</li>
+<li>Atom</li>
+<li>Vim</li>
+<li>Visual Studio Code</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org271d7bd">
+<h2 id="org271d7bd">En pratique</h2>
+<ol>
+<li><p>
+Installer le plugin sbt
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-scala"><span style="color: #75715E;">// </span><span style="color: #75715E;">./.sbt/1.0/plugins/plugins.sbt</span>
+addSbtPlugin(<span style="color: #E6DB74;">"org.ensime"</span> % <span style="color: #E6DB74;">"sbt-ensime"</span> % <span style="color: #E6DB74;">"2.1.0"</span>)
+</pre>
+</div></li>
+<li><p>
+Générer une configuration par projet
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-bash">% sbt ensimeConfig 
+</pre>
+</div></li>
+<li>Intégration dans l'éditeur (emacs)
+<ul>
+<li>Installation du package (M-x list-packages)</li>
+<li>Lancement de l'intégration (M-x ensime)</li>
+
+</ul></li>
+
+</ol>
+
+</section>
+</section>
+<section>
+<section id="slide-org36c83a3">
+<h2 id="org36c83a3">Demo</h2>
+<ul>
+<li>Code compilation/checking</li>
+<li>Inférence des types (C-c C-v t)</li>
+<li>Completion</li>
+<li>Import de type (C-c C-r t)</li>
+<li>Navigation dans le code (M-. et M-,)</li>
+<li>Trouver les utilisations (C-c C-v r)</li>
+<li>Expliciter les implicites (C-c C-v e)</li>
+<li>Serveur de documentation (C-c C-v d)</li>
+<li>Refactor (`C-v C-r r` et `C-v C-r r`)</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org8fce5ea">
+<h2 id="org8fce5ea">Ce que je n'ai pas testé</h2>
+<ul>
+<li>Debugging</li>
+<li>Support Java</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org5f4fb48">
+<h2 id="org5f4fb48">Les moins</h2>
+<ul>
+<li>Lag (pas pire qu'Intellij)</li>
+<li>Bugs</li>
+<li>Pas aussi complet qu'un IDE</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: false,
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: './reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
