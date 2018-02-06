@@ -2,7 +2,7 @@
 
 Presentation du developpement Scala avec Ensime et Emacs
 
-Hosted at https://jpthomasset.github.io/slug-ensime/
+Hosted at https://jpthomasset.github.io/slug-meetup-ensime/
 
 ## Plus d'informations
 

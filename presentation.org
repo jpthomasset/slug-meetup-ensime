@@ -105,6 +105,6 @@ Avec un peu d'Emacs dedans !
 * Merci
 [[./img/try.jpg]]
 
-https://jpthomasset.github.io/slug-ensime/
+https://jpthomasset.github.io/slug-meetup-ensime/
 
 Made with ♥ using Emacs (org-mode)
