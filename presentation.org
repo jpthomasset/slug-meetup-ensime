@@ -9,6 +9,7 @@
 
 * Scala + Ensime = ♥
 Avec un peu d'Emacs dedans !
+[[./img/emacs-vs-vi.png]]
 
 * Sondage
 - [ ] Intellij 
@@ -43,8 +44,16 @@ Avec un peu d'Emacs dedans !
   % sbt ensimeConfig 
   #+END_SRC
 3. Intégration dans l'éditeur (emacs)
-  - Installation du package (M-x list-packages)
-  - Lancement de l'intégration (M-x ensime)
+  - Installation du package (~M-x list-packages~)
+  - Lancement de l'intégration (~M-x ensime~)
+
+* Emacs
+[[./img/rage.jpg]]
+
+** Pas si difficile
+- Tutoriel intégré
+- ~helm~ package
+- ~M-x~ For the win !
 
 * Demo
 - Code compilation/checking
@@ -56,6 +65,26 @@ Avec un peu d'Emacs dedans !
 - Expliciter les implicites (C-c C-v e)
 - Serveur de documentation (C-c C-v d)
 - Refactor (`C-v C-r r` et `C-v C-r r`) 
+- ...
+
+* Tips
+** sbt tasks
+  #+BEGIN_SRC sh
+  % sbt ensimeConfigProject
+  % sbt ensimeServerIndex
+  % sbt ensimeSnapshot
+  % sbt ensimeRestore
+  #+END_SRC
+
+** Erreur fréquente
+  #+BEGIN_SRC
+  [warn] You have a different version of scala for ENSIME (2.12.4) and hello-world-template (2.12.3).
+  [warn] If this is not what you intended, try fixing your build with:
+  [warn]   scalaVersion in ThisBuild := "2.12.3"
+  [warn] in your build.sbt, or override the ENSIME scala version with:
+  [warn]   ensimeScalaVersion in ThisBuild := "2.12.3"
+  [warn] in a ensime.sbt: http://ensime.org/build_tools/sbt/#customise
+  #+END_SRC
 
 * Ce que je n'ai pas testé
 - Debugging
@@ -63,9 +92,19 @@ Avec un peu d'Emacs dedans !
 
 * Les moins
 - Lag (pas pire qu'Intellij)
-- Bugs
+- Bugs / Crash
 - Pas aussi complet qu'un IDE
-
-* Conclusion
 - Pas pour les débutants
+
+* Les plus
 - Intégration dans l'outil de votre choix
+- Open-source et facilement hackable
+- Documentation / gitter
+- Emacs, un vrai plus au quotidien
+
+* Merci
+[[./img/try.jpg]]
+
+https://jpthomasset.github.io/slug-ensime/
+
+Made with ♥ using Emacs (org-mode)

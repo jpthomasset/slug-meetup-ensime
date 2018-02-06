@@ -28,17 +28,18 @@
 <div class="slides">
 
 <section>
-<section id="slide-org452625a">
-<h2 id="org452625a">Scala + Ensime = ♥</h2>
+<section id="slide-orgc61196a">
+<h2 id="orgc61196a">Scala + Ensime = ♥</h2>
 <p>
 Avec un peu d'Emacs dedans !
+<img src="./img/emacs-vs-vi.png" alt="emacs-vs-vi.png" />
 </p>
 
 </section>
 </section>
 <section>
-<section id="slide-org8cf980e">
-<h2 id="org8cf980e">Sondage</h2>
+<section id="slide-org08a97b7">
+<h2 id="org08a97b7">Sondage</h2>
 <ul>
 <li class="off"><code>[&#xa0;]</code> Intellij</li>
 <li class="off"><code>[&#xa0;]</code> Eclipse</li>
@@ -50,8 +51,8 @@ Avec un peu d'Emacs dedans !
 </section>
 </section>
 <section>
-<section id="slide-org74da936">
-<h2 id="org74da936">C'est quoi l'idée</h2>
+<section id="slide-org1eafcb4">
+<h2 id="org1eafcb4">C'est quoi l'idée</h2>
 
 <div class="figure">
 <p><img src="./img/architecture.png" alt="architecture.png" />
@@ -60,13 +61,13 @@ Avec un peu d'Emacs dedans !
 </section>
 </section>
 <section>
-<section id="slide-org9622e04">
-<h2 id="org9622e04">Indépendant de l'éditeur et de l'outil de build</h2>
-<div class="outline-text-2" id="text-org9622e04">
+<section id="slide-org914d199">
+<h2 id="org914d199">Indépendant de l'éditeur et de l'outil de build</h2>
+<div class="outline-text-2" id="text-org914d199">
 </div>
 </section>
-<section id="slide-orgda3b106">
-<h3 id="orgda3b106">Build tools</h3>
+<section id="slide-org81a9656">
+<h3 id="org81a9656">Build tools</h3>
 <ul>
 <li>sbt</li>
 <li>cbt</li>
@@ -79,8 +80,8 @@ Avec un peu d'Emacs dedans !
 </p>
 
 </section>
-<section id="slide-orgd268db7">
-<h3 id="orgd268db7">Editeurs</h3>
+<section id="slide-orgff2a588">
+<h3 id="orgff2a588">Editeurs</h3>
 <ul>
 <li>Emacs (♥)</li>
 <li>Atom</li>
@@ -92,8 +93,8 @@ Avec un peu d'Emacs dedans !
 </section>
 </section>
 <section>
-<section id="slide-org271d7bd">
-<h2 id="org271d7bd">En pratique</h2>
+<section id="slide-org718e95d">
+<h2 id="org718e95d">En pratique</h2>
 <ol>
 <li><p>
 Installer le plugin sbt
@@ -114,8 +115,8 @@ Générer une configuration par projet
 </div></li>
 <li>Intégration dans l'éditeur (emacs)
 <ul>
-<li>Installation du package (M-x list-packages)</li>
-<li>Lancement de l'intégration (M-x ensime)</li>
+<li>Installation du package (<code>M-x list-packages</code>)</li>
+<li>Lancement de l'intégration (<code>M-x ensime</code>)</li>
 
 </ul></li>
 
@@ -124,8 +125,29 @@ Générer une configuration par projet
 </section>
 </section>
 <section>
-<section id="slide-org36c83a3">
-<h2 id="org36c83a3">Demo</h2>
+<section id="slide-orgbb2fb79">
+<h2 id="orgbb2fb79">Emacs</h2>
+
+<div class="figure">
+<p><img src="./img/rage.jpg" alt="rage.jpg" />
+</p>
+</div>
+
+</section>
+<section id="slide-orgfcbe095">
+<h3 id="orgfcbe095">Pas si difficile</h3>
+<ul>
+<li>Tutoriel intégré</li>
+<li><code>helm</code> package</li>
+<li><code>M-x</code> For the win !</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org465db00">
+<h2 id="org465db00">Demo</h2>
 <ul>
 <li>Code compilation/checking</li>
 <li>Inférence des types (C-c C-v t)</li>
@@ -136,14 +158,46 @@ Générer une configuration par projet
 <li>Expliciter les implicites (C-c C-v e)</li>
 <li>Serveur de documentation (C-c C-v d)</li>
 <li>Refactor (`C-v C-r r` et `C-v C-r r`)</li>
+<li>&#x2026;</li>
 
 </ul>
 
 </section>
 </section>
 <section>
-<section id="slide-org8fce5ea">
-<h2 id="org8fce5ea">Ce que je n'ai pas testé</h2>
+<section id="slide-org4316c20">
+<h2 id="org4316c20">Tips</h2>
+<div class="outline-text-2" id="text-org4316c20">
+</div>
+</section>
+<section id="slide-orgc3656e1">
+<h3 id="orgc3656e1">sbt tasks</h3>
+<div class="org-src-container">
+
+<pre  class="src src-sh">% sbt ensimeConfigProject
+% sbt ensimeServerIndex
+% sbt ensimeSnapshot
+% sbt ensimeRestore
+</pre>
+</div>
+
+</section>
+<section id="slide-org3f2fc56">
+<h3 id="org3f2fc56">Erreur fréquente</h3>
+<pre  class="example">
+[warn] You have a different version of scala for ENSIME (2.12.4) and hello-world-template (2.12.3).
+[warn] If this is not what you intended, try fixing your build with:
+[warn]   scalaVersion in ThisBuild := "2.12.3"
+[warn] in your build.sbt, or override the ENSIME scala version with:
+[warn]   ensimeScalaVersion in ThisBuild := "2.12.3"
+[warn] in a ensime.sbt: http://ensime.org/build_tools/sbt/#customise
+</pre>
+
+</section>
+</section>
+<section>
+<section id="slide-orgf9c6895">
+<h2 id="orgf9c6895">Ce que je n'ai pas testé</h2>
 <ul>
 <li>Debugging</li>
 <li>Support Java</li>
@@ -153,14 +207,47 @@ Générer une configuration par projet
 </section>
 </section>
 <section>
-<section id="slide-org5f4fb48">
-<h2 id="org5f4fb48">Les moins</h2>
+<section id="slide-org01785d7">
+<h2 id="org01785d7">Les moins</h2>
 <ul>
 <li>Lag (pas pire qu'Intellij)</li>
-<li>Bugs</li>
+<li>Bugs / Crash</li>
 <li>Pas aussi complet qu'un IDE</li>
+<li>Pas pour les débutants</li>
 
 </ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgfb635d1">
+<h2 id="orgfb635d1">Les plus</h2>
+<ul>
+<li>Intégration dans l'outil de votre choix</li>
+<li>Open-source et facilement hackable</li>
+<li>Documentation / gitter</li>
+<li>Emacs, un vrai plus au quotidien</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org486a2b3">
+<h2 id="org486a2b3">Merci</h2>
+
+<div class="figure">
+<p><img src="./img/try.jpg" alt="try.jpg" />
+</p>
+</div>
+
+<p>
+<a href="https://jpthomasset.github.io/slug-ensime/">https://jpthomasset.github.io/slug-ensime/</a>
+</p>
+
+<p>
+Made with ♥ using Emacs (org-mode)
+</p>
 </section>
 </section>
 </div>
