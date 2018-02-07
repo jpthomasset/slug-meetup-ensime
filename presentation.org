@@ -51,9 +51,14 @@ Avec un peu d'Emacs dedans !
 [[./img/rage.jpg]]
 
 ** Pas si difficile
-- Tutoriel intégré
+- ~C-h t~ Tutoriel intégré
 - ~helm~ package
 - ~M-x~ For the win !
+
+** Il n'y a pas qu'Ensime
+- scala-mode
+- sbt-mode
+- company-mode
 
 * Demo
 - Code compilation/checking
