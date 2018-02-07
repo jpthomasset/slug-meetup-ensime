@@ -53,7 +53,7 @@ Avec un peu d'Emacs dedans !
 ** Pas si difficile
 - ~C-h t~ Tutoriel intégré
 - ~helm~ package
-- ~M-x~ For the win !
+- ~M-x~ For the win ! ~C-g~ when you lose !
 
 ** Il n'y a pas qu'Ensime
 - scala-mode
@@ -69,7 +69,8 @@ Avec un peu d'Emacs dedans !
 - Trouver les utilisations (C-c C-v r)
 - Expliciter les implicites (C-c C-v e)
 - Serveur de documentation (C-c C-v d)
-- Refactor (`C-v C-r r` et `C-v C-r r`) 
+- Recherche de methodes ou de types (C-c C-v v)
+- Refactor (`C-c C-r r`) 
 - ...
 
 * Tips
